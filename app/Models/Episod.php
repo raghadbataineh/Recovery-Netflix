@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Episod extends Model
+{
+    use HasFactory;
+
+     protected $guarded = [];
+
+    // each episode belongs to a series 
+         public function series() { 
+            return $this->belongsTo(Series::class);
+         }
+
+
+}
