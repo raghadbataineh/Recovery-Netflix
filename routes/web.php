@@ -6,6 +6,7 @@ use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\EpisodController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 
 
 // These routes are accessible to all users for the homepage and series details

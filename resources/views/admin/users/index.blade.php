@@ -3,7 +3,7 @@
 @section('content')
 <div class="d-flex justify-content-between mb-3">
     <h3>Users</h3>
-    <a href="{{ route('users.create') }}" class="btn btn-primary">+ Add User</a>
+    <a href="{{ route('admin.users.create') }}" class="btn btn-primary">+ Add User</a>
 </div>
 
 <table class="table table-bordered">
@@ -21,8 +21,8 @@
         <td>{{ $user->email }}</td>
         <td>{{ ucfirst($user->role) }}</td>
         <td>
-            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
-            <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline-block">
+            <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline-block">
                 @csrf 
                 @method('DELETE')
                 <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>

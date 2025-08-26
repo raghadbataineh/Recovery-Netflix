@@ -19,7 +19,7 @@ class EpisodePolicy
 
     public function viewAny(User $u)
     {
-         return $u->isAdmin(); 
+         return $u->isAdmin() || $u->isEmployee(); 
     }
 
     public function view(User $u, Episod $e)

@@ -4,7 +4,7 @@
 @section('content')
     <h2>Add User</h2>
 
-    <form method="POST" action="{{ route('users.store') }}">
+    <form method="POST" action="{{ route('admin.users.store') }}">
         @csrf
 
         <div class="mb-3">
