@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Series;
-use App\Models\Episod;
+use App\Models\Episode;
 
 class HomepageController extends Controller
 {
@@ -30,7 +30,7 @@ public function show($id)
 
 public function showEpisode($id)
     {
-        $episode = Episod::findOrFail($id);
+        $episode = Episode::findOrFail($id);
         return view('Front-end.episode-show', compact('episode'));
     }
 

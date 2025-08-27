@@ -29,15 +29,26 @@
             <a href="{{ route('admin.users.index') }}">📂 Users</a>
         </li>
     @endif
+@can('viewAny', App\Models\Episode::class)
+    <li><a href="{{ route('admin.episodes.index') }}">🎞 Manage Episodes</a></li>
+@endcan
+
+<!-- @if(auth()->user()->isAdmin() || auth()->user()->isEmployee())
+    <li><a href="{{ route('admin.episodes.index') }}">🎞 Manage Episodes</a></li>
+@endif -->
+
 
 @can('viewAny', App\Models\Series::class)
     <li><a href="{{ route('admin.series.index') }}">🎬 Manage Series</a></li>
 @endcan
 
-@can('viewAny', App\Models\Episod::class)
-    <li><a href="{{ route('admin.episodes.index') }}">🎞 Manage Episodes</a></li>
-@endcan
 
+<li>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn btn-primary" >Logout</button>
+    </form>
+</li>
 
 
     </div>

@@ -13,7 +13,7 @@ class Series extends Model
     // the series has many episodes 
       public function episodes()
     {
-        return $this->hasMany(Episod::class)->latest('release_date');
+        return $this->hasMany(Episode::class)->latest('release_date');
     }
 
     // many-to-many relationship with User for favorites

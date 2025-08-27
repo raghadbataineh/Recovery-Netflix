@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Episod;
+use App\Models\Episode;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -14,15 +14,15 @@ class EpisodePolicy
     //the admin and employee can create, update, delete episodes 
     
     public function create(User $u){ return $u->isAdmin() || $u->isEmployee(); }
-    public function update(User $u, Episod $e){ return $u->isAdmin() || $u->isEmployee(); }
-    public function delete(User $u, Episod $e){ return $u->isAdmin() || $u->isEmployee(); }
+    public function update(User $u, Episode $e){ return $u->isAdmin() || $u->isEmployee(); }
+    public function delete(User $u, Episode $e){ return $u->isAdmin() || $u->isEmployee(); }
 
     public function viewAny(User $u)
     {
          return $u->isAdmin() || $u->isEmployee(); 
     }
 
-    public function view(User $u, Episod $e)
+    public function view(User $u, Episode $e)
     {
         return true;
     }

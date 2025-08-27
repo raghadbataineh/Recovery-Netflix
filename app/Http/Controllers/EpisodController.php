@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Episod;
+use App\Models\Episode;
 use Illuminate\Http\Request;
 use App\Models\Series;
 use App\Http\Resources\SeriesResource;
@@ -13,13 +13,13 @@ class EpisodController extends Controller
 
      public function __construct()
     {
-        $this->authorizeResource(\App\Models\Episod::class, 'episode');
+        $this->authorizeResource(\App\Models\Episode::class, 'episode');
     }
 
 
     public function index()
     {
-        $episodes = Episod::with('series')->get();
+        $episodes = Episode::with('series')->get();
         return view('admin.episods.index', compact('episodes'));
     }
 
@@ -41,13 +41,13 @@ class EpisodController extends Controller
         return redirect()->route('admin.episodes.index')->with('success', 'Episode created successfully.');
     }
 
-    public function edit(Episod $episode)
+    public function edit(Episode $episode)
     {
         $series = Series::all();
         return view('admin.episods.edit', compact('episode', 'series'));
     }
 
-    public function update(Request $request, Episod $episode)
+    public function update(Request $request, Episode $episode)
     {
         $request->validate([
             'series_id' => 'required|exists:series,id',
@@ -59,7 +59,7 @@ class EpisodController extends Controller
         return redirect()->route('admin.episodes.index')->with('success', 'Episode updated successfully.');
     }
 
-    public function destroy(Episod $episode)
+    public function destroy(Episode $episode)
     {
         $episode->delete();
         return redirect()->route('admin.episodes.index')->with('success', 'Episode deleted successfully.');

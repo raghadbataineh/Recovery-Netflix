@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Series;
-use App\Models\Episod;
+use App\Models\Episode;
 
 class EpisodsSeeder extends Seeder
 {
@@ -19,7 +19,7 @@ class EpisodsSeeder extends Seeder
          $allSeries = Series::all();
             foreach ($allSeries as $series) {
                 for ($i = 1; $i <= 6; $i++) {
-                    Episod::create([
+                    Episode::create([
                         'series_id' => $series->id,
                         'title' => "Episode $i of " . $series->title,
                         'description' => "Description for Episode $i of " . $series->title,

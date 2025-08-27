@@ -24,7 +24,7 @@ class LoginController extends Controller
     protected function authenticated($request, $user)
 {
     if (in_array($user->role, ['admin', 'employee'])) {
-        return redirect()->route('admin.series.index'); 
+        return redirect()->route('admin.categories.index'); 
     }
 
     return redirect()->route('home');
