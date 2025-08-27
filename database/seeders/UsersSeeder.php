@@ -29,5 +29,12 @@ class UsersSeeder extends Seeder
             'role' => 'employee',
         ]);
 
+         User::create([
+            'name' => 'Normal User',
+            'email' => 'Moatasem@gmail.com',
+            'password' => bcrypt('password'), // use bcrypt to hash the password
+            'role' => 'user',
+        ]);
+
     }
 }

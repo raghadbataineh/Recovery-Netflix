@@ -7,6 +7,8 @@ use App\Http\Controllers\EpisodController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\FavoriteApiController;
+
 
 
 // These routes are accessible to all users for the homepage and series details
@@ -26,10 +28,6 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-
-
-
-
 //     Route::resource('/admin/series', SeriesController::class)->names('admin.series');
 //     Route::resource('/admin/episodes', EpisodController::class)->names('admin.episodes');
 // Route::resource('/admin/categories', CategoryController::class)->names('admin.categories');
@@ -43,6 +41,9 @@ Route::resource('/admin/users', AuthController::class)
 
 // ADMIN PANEL (Series / Episodes / Categories)
 Route::middleware(['auth'])->group(function () {
+
+     Route::post('/favorites/toggle/{series}', [FavoriteApiController::class, 'toggle'])
+        ->name('favorites.toggle');
 
     // Series protection with policies
     Route::resource('/admin/series', SeriesController::class)
